@@ -32,16 +32,16 @@ $(window).on('load', function() {
 	/*------------------
 		Background Set
 	--------------------*/
-	$('.set-bg').each(function() {
+	/*$('.set-bg').each(function() {
 		var bg = $(this).data('setbg');
 		$(this).css('background-image', 'url(' + bg + ')');
-	});
+	});*/
 
 
 	/*------------------
 		Hero Slider
 	--------------------*/
-	$('.hero-slider').owlCarousel({
+	/*$('.hero-slider').owlCarousel({
 		loop: true,
 		nav: false,
 		dots: true,
@@ -50,7 +50,7 @@ $(window).on('load', function() {
     	animateIn: 'fadeIn',
 		items: 1,
 		autoplay: true
-	});
+	});*/
 	var dot = $('.hero-slider .owl-dot');
 	dot.each(function() {
 		var index = $(this).index() + 1;
@@ -67,14 +67,14 @@ $(window).on('load', function() {
 	/*------------------
 		News Ticker
 	--------------------*/
-	$('.news-ticker').marquee({
+	/*$('.news-ticker').marquee({
 	    duration: 10000,
 	    //gap in pixels between the tickers
 	    //gap: 200,
 	    delayBeforeStart: 0,
 	    direction: 'left',
 	    duplicated: true
-	});
+	});*/
 
 })(jQuery);
 

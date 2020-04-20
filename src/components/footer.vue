@@ -3,11 +3,15 @@
   <footer class="footer-section">
     <div class="container">
       <ul class="footer-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="review.html">Games</a></li>
-        <li><a href="categories.html">Blog</a></li>
-        <li><a href="community.html">Forums</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href=""><router-link to="/">Home</router-link></a>
+        </li>
+        <li>
+          <a href=""><router-link to="/">Games</router-link></a>
+        </li>
+        <li>
+          <a href=""><router-link to="/contact">Contact</router-link></a>
+        </li>
       </ul>
       <p class="copyright"></p>
     </div>

@@ -28,7 +28,7 @@ export default {
   }*/
 
   created() {
-    console.log("app created.....");
+    console.log("App created.....");
   }
 };
 </script>

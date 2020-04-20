@@ -13,7 +13,7 @@
           <img src="img/logo.png" alt="" />
         </a>
         <div class="user-panel">
-          <a href="#">Login</a> / <a href="#">Register</a>
+          <a href="#">Login</a>/<a href="#">Register</a>
         </div>
         <!-- responsive -->
         <div class="nav-switch">
@@ -22,11 +22,15 @@
         <!-- site menu -->
         <nav class="main-menu">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="review.html">Games</a></li>
-            <li><a href="categories.html">Blog</a></li>
-            <li><a href="community.html">Forums</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li>
+              <a href=""><router-link to="/">Home</router-link></a>
+            </li>
+            <li>
+              <a href=""><router-link to="/">Games</router-link></a>
+            </li>
+            <li>
+              <a href=""><router-link to="/contact">Contact</router-link></a>
+            </li>
           </ul>
         </nav>
       </div>
