@@ -6,16 +6,18 @@ import { API_URL } from "./config";
 Vue.use(VueAxios, axios);
 Vue.axios.defaults.baseURL = API_URL;
 
-const ApiService = {
+export const ApiService = {
   get(resource) {
     console.log("resource:" + resource);
     return axios.get(`${resource}/`).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
+  },
+
+  post(resource, params) {
+    return axios.post(`${resource}`, params);
   }
 };
-
-export default ApiService;
 
 export const GameService = {
   get() {

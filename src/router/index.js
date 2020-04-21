@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import index from "../components/index.vue";
 import contact from "../components/contact.vue";
+import login from "../components/login.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
     path: "/contact",
     name: "contact",
     component: contact
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: login
   }
 ];
 

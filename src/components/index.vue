@@ -16,7 +16,10 @@
             v-for="game in action_games_get"
             :key="game.id"
           >
-            <a :href="game.game_url">
+            <a
+              :href="game.game_url"
+              v-on:click.prevent="checkStatus(game.game_url)"
+            >
               <div class="review-item">
                 <div class="review-cover set-bg" :data-setbg="game.image_url">
                   <div class="score yellow">9.3</div>
@@ -123,9 +126,28 @@ export default {
     };
   },
   beforeRouteEnter(to, from, next) {
-    Promise.all([store.dispatch(GET_GAMES)]).then(() => {
-      next();
-    });
+    console.log("calling action using dispatch");
+    Promise.all([store.dispatch(GET_GAMES)])
+      .then(data => {
+        console.log("promise data:", data);
+        next();
+      })
+      .catch(error => {
+        console.log("promise error:", error);
+      });
+
+    /*store.dispatch(GET_GAMES).then((data) => {
+        //debugger;
+        console.log(data);
+        next();
+    })*/
+  },
+
+  methods: {
+    checkStatus(game_url) {
+      console.log("status....." + game_url);
+      window.location.href = game_url;
+    }
   },
 
   computed: {

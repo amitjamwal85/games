@@ -13,7 +13,8 @@
           <img src="img/logo.png" alt="" />
         </a>
         <div class="user-panel">
-          <a href="#">Login</a>/<a href="#">Register</a>
+          <a href="#"><router-link to="/login">Login</router-link></a
+          ><!--/<a href="#">Register</a>-->
         </div>
         <!-- responsive -->
         <div class="nav-switch">

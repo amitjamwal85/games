@@ -6,9 +6,7 @@
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="comment-title">Contact us</h4>
           <p>
-            Odio ultrices ut. Etiam ac erat ut enim maximus accumsan vel ac
-            nisl. Duis feug iat bibendum orci, non elementum urna. Cras sit amet
-            sapien aliquam.
+            Genrosys Technologies Pvt. Ltd.
           </p>
           <div class="row">
             <div class="col-md-9">
@@ -16,16 +14,16 @@
                 <li>
                   <div class="cf-left">Address</div>
                   <div class="cf-right">
-                    1481 Creekside Lane Avila Beach, CA 931
+                    E-195, Industrial Area, Phase 8-B, Mohali, Punjab, India
                   </div>
                 </li>
                 <li>
                   <div class="cf-left">Phone</div>
-                  <div class="cf-right">+53 345 7953 32453</div>
+                  <div class="cf-right">+91 9988760120</div>
                 </li>
                 <li>
                   <div class="cf-left">E-mail</div>
-                  <div class="cf-right">yourmail@gmail.com</div>
+                  <div class="cf-right">amitjamwal85@gmail.com</div>
                 </li>
               </ul>
             </div>
