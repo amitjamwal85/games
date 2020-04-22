@@ -51,7 +51,10 @@
             v-for="game in sports_games_get"
             :key="game.id"
           >
-            <a :href="game.game_url">
+            <a
+              :href="game.game_url"
+              v-on:click.prevent="checkStatus(game.game_url)"
+            >
               <div class="review-item">
                 <div class="review-cover set-bg" :data-setbg="game.image_url">
                   <div class="score yellow">9.3</div>
@@ -84,7 +87,10 @@
             v-for="game in racing_games_get"
             :key="game.id"
           >
-            <a :href="game.game_url">
+            <a
+              :href="game.game_url"
+              v-on:click.prevent="checkStatus(game.game_url)"
+            >
               <div class="review-item">
                 <div class="review-cover set-bg" :data-setbg="game.image_url">
                   <div class="score yellow">9.3</div>
@@ -145,13 +151,20 @@ export default {
 
   methods: {
     checkStatus(game_url) {
-      console.log("status....." + game_url);
-      window.location.href = game_url;
+      console.log("isAuthenticated :", this.isAuthenticated);
+      console.log(game_url);
+      if (this.isAuthenticated) window.location.href = game_url;
+      else this.$router.push({ name: "login" });
     }
   },
 
   computed: {
-    ...mapGetters(["action_games_get", "sports_games_get", "racing_games_get"])
+    ...mapGetters([
+      "action_games_get",
+      "sports_games_get",
+      "racing_games_get",
+      "isAuthenticated"
+    ])
   },
 
   beforeCreate() {

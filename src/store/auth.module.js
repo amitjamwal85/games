@@ -1,12 +1,40 @@
-//import {SET_AUTH} from "./mutations.type";
-import { LOGIN } from "./action.type";
+import { SET_AUTH, SET_ERROR, DEL_AUTH } from "./mutations.type";
+import { LOGIN, LOGOUT } from "./action.type";
 import { ApiService } from "../common/api.service";
+import tokenService from "../common/access.token";
 
-export const state = {};
+export const state = {
+  errors: null,
+  isAuthenticated: !!tokenService.getToken(),
+  user: {}
+};
 
-export const mutations = {};
+export const mutations = {
+  [SET_AUTH](state, user) {
+    state.isAuthenticated = true;
+    state.user = user;
+    tokenService.saveToken(state.user.token);
+  },
+  [SET_ERROR](state, errors) {
+    state.errors = errors;
+  },
 
-export const getters = {};
+  [DEL_AUTH](state) {
+    state.isAuthenticated = false;
+    state.user = {};
+    state.errors = null;
+    tokenService.destroyToken();
+  }
+};
+
+export const getters = {
+  currentUser(state) {
+    return state.user;
+  },
+  isAuthenticated(state) {
+    return state.isAuthenticated;
+  }
+};
 
 export const actions = {
   [LOGIN](context, credentials) {
@@ -14,12 +42,18 @@ export const actions = {
       ApiService.post("game/login/", credentials)
         .then(({ data }) => {
           console.log("token data:", data);
+          context.commit(SET_AUTH, data);
           resolve(data);
         })
         .catch(({ response }) => {
+          context.commit(SET_ERROR, response.data.error);
           console.log("error:", response.data.error);
         });
     });
+  },
+
+  [LOGOUT](context) {
+    context.commit(DEL_AUTH);
   }
 };
 

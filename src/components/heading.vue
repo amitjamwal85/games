@@ -13,8 +13,11 @@
           <img src="img/logo.png" alt="" />
         </a>
         <div class="user-panel">
-          <a href="#"><router-link to="/login">Login</router-link></a
-          ><!--/<a href="#">Register</a>-->
+          <a href="#" v-show="!isAuthenticated"
+            ><router-link to="/login">Login</router-link></a
+          >
+          <a href="" v-show="isAuthenticated" @click="logout()">Logout</a>
+          <!--/<a href="#">Register</a>-->
         </div>
         <!-- responsive -->
         <div class="nav-switch">
@@ -41,8 +44,22 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { LOGOUT } from "../store/action.type";
 export default {
-  name: "heading"
+  name: "heading",
+
+  computed: {
+    ...mapGetters(["isAuthenticated"])
+  },
+
+  methods: {
+    logout() {
+      this.$store.dispatch(LOGOUT).then(() => {
+        this.$router.push({ name: "home" });
+      });
+    }
+  }
 };
 </script>
 
