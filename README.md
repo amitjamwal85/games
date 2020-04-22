@@ -1,4 +1,8 @@
-# gamesportal
+# Genrosys Gaming Portal
+
+```
+This is developed in Vue.JS and backend in Django Rest framework.
+```
 
 ## Project setup
 ```
