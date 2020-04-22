@@ -12,6 +12,9 @@
         <li>
           <a href=""><router-link to="/contact">Contact</router-link></a>
         </li>
+        <li v-show="isAuthenticated">
+          <a href="" @click="logout()">Logout</a>
+        </li>
       </ul>
       <p class="copyright"></p>
     </div>
@@ -19,8 +22,22 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { LOGOUT } from "../store/action.type";
 export default {
-  name: "foot"
+  name: "foot",
+
+  computed: {
+    ...mapGetters(["isAuthenticated"])
+  },
+
+  methods: {
+    logout() {
+      this.$store.dispatch(LOGOUT).then(() => {
+        this.$router.push({ name: "home" });
+      });
+    }
+  }
 };
 </script>
 

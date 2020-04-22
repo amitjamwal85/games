@@ -3,20 +3,23 @@ import { LOGIN, LOGOUT } from "./action.type";
 import { ApiService } from "../common/api.service";
 import tokenService from "../common/access.token";
 
-export const state = {
+const state = {
   errors: null,
   isAuthenticated: !!tokenService.getToken(),
   user: {}
 };
 
-export const mutations = {
+const mutations = {
   [SET_AUTH](state, user) {
     state.isAuthenticated = true;
     state.user = user;
     tokenService.saveToken(state.user.token);
   },
+
   [SET_ERROR](state, errors) {
+    console.log("SET_ERROR1:", errors);
     state.errors = errors;
+    console.log("SET_ERROR2:", errors);
   },
 
   [DEL_AUTH](state) {
@@ -27,7 +30,7 @@ export const mutations = {
   }
 };
 
-export const getters = {
+const getters = {
   currentUser(state) {
     return state.user;
   },
@@ -36,7 +39,7 @@ export const getters = {
   }
 };
 
-export const actions = {
+const actions = {
   [LOGIN](context, credentials) {
     return new Promise(resolve => {
       ApiService.post("game/login/", credentials)
