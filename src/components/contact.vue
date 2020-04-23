@@ -40,18 +40,43 @@
         <div class="col-lg-8">
           <div class="contact-form-warp">
             <h4 class="comment-title">Leave a Reply</h4>
+            <ul v-if="errors">
+              <li v-for="(v, k) in errors" :key="k" style="color: #f44336">
+                {{ k }} {{ v }}
+              </li>
+            </ul>
             <form class="comment-form">
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" placeholder="Name" />
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    v-model="req_data.name"
+                  />
                 </div>
                 <div class="col-md-6">
-                  <input type="email" placeholder="Email" />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    v-model="req_data.email"
+                  />
                 </div>
                 <div class="col-lg-12">
-                  <input type="text" placeholder="Subject" />
-                  <textarea placeholder="Message"></textarea>
-                  <button class="site-btn btn-sm">Send</button>
+                  <input
+                    type="text"
+                    placeholder="Subject"
+                    v-model="req_data.subject"
+                  />
+                  <textarea
+                    placeholder="Message"
+                    v-model="req_data.message"
+                  ></textarea>
+                  <button
+                    class="site-btn btn-sm"
+                    @click.prevent="saveContact()"
+                  >
+                    Send
+                  </button>
                 </div>
               </div>
             </form>
@@ -64,8 +89,35 @@
 </template>
 
 <script>
+import { CONTACT } from "../store/action.type";
+import { mapState } from "vuex";
+
 export default {
-  name: "login"
+  name: "login",
+  data() {
+    return {
+      req_data: {
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      }
+    };
+  },
+
+  methods: {
+    saveContact() {
+      this.$store.dispatch(CONTACT, this.req_data).then(data => {
+        console.log("data is dispatch: ", data);
+      });
+    }
+  },
+
+  computed: {
+    ...mapState({
+      errors: state => state.contact.errors
+    })
+  }
 };
 </script>
 

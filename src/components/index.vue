@@ -151,8 +151,8 @@ export default {
 
   methods: {
     checkStatus(game_url) {
-      console.log("isAuthenticated :", this.isAuthenticated);
-      console.log(game_url);
+      //console.log("isAuthenticated :", this.isAuthenticated);
+      //console.log(game_url);
       if (this.isAuthenticated) window.location.href = game_url;
       else this.$router.push({ name: "login" });
     }
