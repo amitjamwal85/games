@@ -4,3 +4,4 @@ export const SET_ERROR = "setError";
 export const DEL_AUTH = "delAuth";
 export const SET_CONTACT = "setContact";
 export const SET_ERRORS = "setErrors";
+export const CLEAR_VALUE = "clearValue";

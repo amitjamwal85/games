@@ -90,6 +90,7 @@
 
 <script>
 import { CONTACT } from "../store/action.type";
+import { CLEAR_VALUE } from "../store/mutations.type";
 import { mapState } from "vuex";
 
 export default {
@@ -109,6 +110,11 @@ export default {
     saveContact() {
       this.$store.dispatch(CONTACT, this.req_data).then(data => {
         console.log("data is dispatch: ", data);
+        this.req_data.name = "";
+        this.req_data.email = "";
+        this.req_data.subject = "";
+        this.req_data.message = "";
+        this.$store.commit(CLEAR_VALUE)
       });
     }
   },

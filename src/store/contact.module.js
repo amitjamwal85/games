@@ -1,4 +1,4 @@
-import { SET_CONTACT, SET_ERRORS } from "./mutations.type";
+import { SET_CONTACT, SET_ERRORS, CLEAR_VALUE } from "./mutations.type";
 import { CONTACT } from "./action.type";
 import { ApiService } from "../common/api.service";
 
@@ -14,7 +14,11 @@ const mutations = {
 
   [SET_CONTACT](state, data) {
     state.contact = data;
-  }
+  },
+
+    [CLEAR_VALUE](state){
+      state.errors = null
+    }
 };
 
 const getters = {};
