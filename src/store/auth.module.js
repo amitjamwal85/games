@@ -2,6 +2,7 @@ import { SET_AUTH, SET_ERROR, DEL_AUTH } from "./mutations.type";
 import { LOGIN, LOGOUT } from "./action.type";
 import { ApiService } from "../common/api.service";
 import tokenService from "../common/access.token";
+import { GAME_LOGIN_URL } from "../common/config";
 
 const state = {
   errors: null,
@@ -42,7 +43,7 @@ const getters = {
 const actions = {
   [LOGIN](context, credentials) {
     return new Promise(resolve => {
-      ApiService.post("game/login/", credentials)
+      ApiService.post(GAME_LOGIN_URL, credentials)
         .then(({ data }) => {
           console.log("token data:", data);
           context.commit(SET_AUTH, data);

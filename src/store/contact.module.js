@@ -1,6 +1,7 @@
 import { SET_CONTACT, SET_ERRORS, CLEAR_VALUE } from "./mutations.type";
 import { CONTACT } from "./action.type";
 import { ApiService } from "../common/api.service";
+import { GAME_CONTACT_URL } from "../common/config";
 
 const state = {
   errors: null,
@@ -16,9 +17,9 @@ const mutations = {
     state.contact = data;
   },
 
-    [CLEAR_VALUE](state){
-      state.errors = null
-    }
+  [CLEAR_VALUE](state) {
+    state.errors = null;
+  }
 };
 
 const getters = {};
@@ -26,7 +27,7 @@ const getters = {};
 const actions = {
   [CONTACT](context, req_data) {
     return new Promise(resolve => {
-      ApiService.post("contact/", req_data)
+      ApiService.post(GAME_CONTACT_URL, req_data)
         .then(({ data }) => {
           console.log("data:", data);
           context.commit(SET_CONTACT, data);

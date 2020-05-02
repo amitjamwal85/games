@@ -114,7 +114,7 @@ export default {
         this.req_data.email = "";
         this.req_data.subject = "";
         this.req_data.message = "";
-        this.$store.commit(CLEAR_VALUE)
+        this.$store.commit(CLEAR_VALUE);
       });
     }
   },

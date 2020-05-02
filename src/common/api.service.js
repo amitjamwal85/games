@@ -1,15 +1,15 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import { API_URL } from "./config";
+import { GET_GAME_URL } from "./config";
 
 Vue.use(VueAxios, axios);
-Vue.axios.defaults.baseURL = API_URL;
+// Vue.axios.defaults.baseURL = API_URL;
 
 export const ApiService = {
   get(resource) {
     console.log("resource:" + resource);
-    return axios.get(`${resource}/`).catch(error => {
+    return axios.get(`${resource}`).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
   },
@@ -21,6 +21,6 @@ export const ApiService = {
 
 export const GameService = {
   get() {
-    return ApiService.get("game");
+    return ApiService.get(GET_GAME_URL);
   }
 };

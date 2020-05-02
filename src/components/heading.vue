@@ -35,6 +35,11 @@
             <li>
               <a href=""><router-link to="/contact">Contact</router-link></a>
             </li>
+            <li>
+              <a href=""
+                ><router-link to="/covidstatewise">Covid-19</router-link></a
+              >
+            </li>
           </ul>
         </nav>
       </div>

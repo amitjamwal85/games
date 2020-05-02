@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import index from "../components/index.vue";
 import contact from "../components/contact.vue";
 import login from "../components/login.vue";
+import covidstatewise from "../views/covidstatewise";
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: login
+  },
+  {
+    path: "/covidstatewise",
+    name: "covidstatewise",
+    component: covidstatewise
   }
 ];
 
