@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaflet Map</title>
+    <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+</head>
+<body>
+    <div id = "map" style = "width:900px; height:580px;"></div>
+</body>
+</html>
+
+<script>
+    var mapOptions = {
+       center: [16.506174, 80.648015],
+       zoom: 7,
+        attributionControl: false
+    }
+    var map = new L.map('map', mapOptions);
+
+    var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    map.addLayer(layer);
+
+    var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg';
+    var  imageBounds = [[17.342761, 78.552432], [16.396553, 80.727725]];
+    L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+    // var scale = L.control.scale();
+    // scale.addTo(map);
+    //
+    // map.on("click", function(e){
+    //     new L.Marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+    // })
+
+    // var hydMarker = new L.Marker([17.385044, 78.486671]);
+    // var vskpMarker = new L.Marker([17.686816, 83.218482]);
+    // var vjwdMarker = new L.Marker([16.506174, 80.648015]);
+    // var latlngs = [
+    //     [17.385044, 78.486671],
+    //     [16.506174, 80.648015],
+    //     [17.686816, 83.218482]
+    // ];
+    // var polygon = L.polygon(latlngs, {color: 'red'});
+    // var layerGroup = L.layerGroup([hydMarker, vskpMarker, vjwdMarker, polygon]);
+    // layerGroup.addTo(map);
+    // var circle = L.circle([16.506174, 80.648015], 50000, {color: '#ffbc10', fillColor:'#a9ffcd', fillOpacity: 0} );
+    // layerGroup.addLayer(circle);
+
+
+    // var latlang = [
+    //     [[17.385044, 78.486671], [16.506174, 80.648015], [17.686816, 83.218482]],
+    //     [[13.082680, 80.270718], [12.971599, 77.594563],[15.828126, 78.037279]]
+    //  ];
+    // var multiPolygonOptions = {color:'red', weight:1};
+    // var multipolygon = L.multiPolygon(latlang , multiPolygonOptions);
+    // multipolygon.addTo(map);
+
+    // var latlngs = [
+    //     [17.385044, 78.486671],
+    //     [16.506174, 80.648015],
+    //     [17.686816, 83.218482]
+    //  ];
+    // var polygon = L.polygon(latlngs, {color: 'red'});
+    // polygon.addTo(map);
+
+
+
+    // var latlngs = [
+    //     [17.385044, 78.486671],
+    //     [16.506174, 80.648015],
+    //     [17.000538, 81.804034],
+    //     [17.686816, 83.218482],
+    //  ];
+    // var polyline = L.polyline(latlngs, {color: 'red'});
+    // polyline.addTo(map);
+
+
+    // var markerOptions = {
+    //    title: "MyLocation",
+    //    clickable: true,
+    //    draggable: true
+    // }
+    // var marker = new L.Marker([30.7396, 76.7335], markerOptions);
+    // marker.addTo(map);
+    //Binding Pop-ups to the Marker
+    //marker.bindPopup('Hi Welcome to Leaflet Map').openPopup();
+
+
+</script>

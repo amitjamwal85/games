@@ -7,8 +7,10 @@ export default {
     },
 
     dateFormatCustom(value) {
-        const  format_date = moment(value, "DD/MM/YYYY HH:mm:ss").format('DD/MMM/YYYY HH:mm');
-        return format_date;
+      const format_date = moment(value, "DD/MM/YYYY HH:mm:ss").format(
+        "DD/MMM/YYYY HH:mm"
+      );
+      return format_date;
     }
   }
 };

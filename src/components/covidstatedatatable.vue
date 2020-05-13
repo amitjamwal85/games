@@ -130,28 +130,27 @@ export default {
 
 <style scoped>
 .table-div-width {
-  width: 70%;
+  width: 60%;
   margin: auto;
-  padding: 10px;
 }
 
 table.dataTable thead tr {
   background-color: #325c64;
-  font-size: 14px;
+  font-size: 12px;
   color: #fcffe8;
 }
 
 table.dataTable tbody tr {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .deltaconfirmed {
-  font-size: 12px;
+  font-size: 10px;
   color: #ff1a10;
 }
 
 .deltarecovered {
-  font-size: 12px;
+  font-size: 10px;
   color: #12b125;
 }
 

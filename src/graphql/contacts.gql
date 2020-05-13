@@ -1,0 +1,7 @@
+query contacts($count: Int!) {
+    contacts(first: $count){
+        id
+        name
+        email
+    }
+}

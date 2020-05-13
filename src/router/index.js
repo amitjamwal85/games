@@ -4,6 +4,10 @@ import index from "../components/index.vue";
 import contact from "../components/contact.vue";
 import login from "../components/login.vue";
 import covidstatewise from "../views/covidstatewise";
+import graphql from "../views/graphql";
+import map from "../views/map";
+import fblogin from "../views/fblogin";
+
 
 Vue.use(VueRouter);
 
@@ -28,6 +32,21 @@ const routes = [
     path: "/covidstatewise",
     name: "covidstatewise",
     component: covidstatewise
+  },
+  {
+    path: "/graphql",
+    name: "graphql",
+    component: graphql
+  },
+  {
+    path: "/map",
+    name: "map",
+    component: map
+  },
+  {
+    path: "/fblogin",
+    name: "fblogin",
+    component: fblogin
   }
 ];
 
